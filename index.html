@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASF Parceiras — Encontre sua dupla de surf</title>
+<meta name="description" content="Encontre parceiras de surf por nível, praia e horário preferido. Ninguém surfa sozinha! Satélite do app ASF.">
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-parceiras/">
+<style>body{font-family:system-ui,sans-serif;margin:0;background:#ecfccb;color:#1a2e05}header{background:#65a30d;color:#fff;padding:2rem;text-align:center}nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:1rem;background:#d9f99d}nav a{color:#3f6212;text-decoration:none;font-size:.85rem}main{max-width:640px;margin:2rem auto;padding:0 1rem}.card{background:#fff;border-radius:16px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}select,input{width:100%;padding:.6rem;margin:.3rem 0;border:1px solid #bef264;border-radius:8px;box-sizing:border-box}button{background:#65a30d;color:#fff;border:0;border-radius:9999px;padding:.7rem 1.4rem;font-weight:700;cursor:pointer}.p{border-left:5px solid #65a30d;padding:.8rem;margin:.5rem 0;border-radius:8px;background:#f7fee7}footer{text-align:center;padding:2rem;color:#525252}</style>
+</head>
+<body>
+<header><h1>ASF Parceiras 🤝🌊</h1><p>Ninguém surfa sozinha — encontre sua dupla!</p></header>
+<nav id="net"></nav>
+<main>
+<div class="card"><h2>✨ Me cadastrar no mural</h2>
+<input id="nome" placeholder="Nome ou @instagram">
+<select id="nivel"><option>Iniciante</option><option>Em progressão</option><option>Intermediária</option><option>Avançada</option></select>
+<select id="praia"><option>Maresias</option><option>Juquehy</option><option>Camburi</option><option>Baleia</option><option>Barra do Una</option><option>Boracéia</option><option>São Sebastião</option><option>Outra</option></select>
+<select id="turno"><option>Dawn patrol (5h-8h)</option><option>Manhã (8h-11h)</option><option>Tarde (14h-17h)</option><option>Sunset session</option></select>
+<button onclick="pub()">Entrar para o mural</button></div>
+<div class="card"><h2>🔍 Buscar parceiras</h2>
+<select id="f-praia" onchange="render()"><option value="">Todas as praias</option><option>Maresias</option><option>Juquehy</option><option>Camburi</option><option>Baleia</option><option>Barra do Una</option><option>Boracéia</option><option>São Sebastião</option></select>
+<select id="f-nivel" onchange="render()"><option value="">Todos os níveis</option><option>Iniciante</option><option>Em progressão</option><option>Intermediária</option><option>Avançada</option></select>
+<div id="mural"></div></div>
+<div class="card"><p>🚗 Sem transporte? Veja o <a href="https://acarolmourad-commits.github.io/asf-carona/">ASF Carona</a>. Antes do primeiro encontro, leia as dicas da <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a> e de <a href="https://acarolmourad-commits.github.io/asf-seguranca/">Segurança</a>.</p></div>
+</main>
+<footer>ASF Parceiras — satélite do <a href="https://acarolmourad-commits.github.io/asf-app/">app ASF</a></footer>
+<script>
+const sites=[["asf-app","App ASF"],["asf-praias","Praias"],["asf-previsao","Previsão"],["asf-treino","Treino"],["asf-eventos","Eventos"],["asf-glossario","Glossário"],["asf-comunidade","Comunidade"],["asf-seguranca","Segurança"],["asf-equipamento","Equipamento"],["asf-quiz","Quiz"],["asf-nutricao","Nutrição"],["asf-viagens","Viagens"],["asf-bemestar","Bem-Estar"],["asf-diario","Diário"],["asf-apnea","Apneia"],["asf-carona","Carona"],["asf-kids","Kids"],["asf-mental","Mental"]];
+document.getElementById('net').innerHTML=sites.map(s=>`<a href="https://acarolmourad-commits.github.io/${s[0]}/">${s[1]}</a>`).join('');
+function load(){return JSON.parse(localStorage.getItem('asf-parceiras')||'[]');}
+function render(){const fp=document.getElementById('f-praia').value,fn=document.getElementById('f-nivel').value;const l=load().filter(x=>(!fp||x.praia===fp)&&(!fn||x.nivel===fn));
+document.getElementById('mural').innerHTML=l.length?l.map(x=>`<div class="p"><b>${x.nome}</b> · ${x.nivel}<br>🏖️ ${x.praia} · ⏰ ${x.turno}</div>`).join(''):'<p>Nenhuma parceira encontrada com esses filtros — cadastre-se!</p>';}
+function pub(){const v=id=>document.getElementById(id).value.trim();if(!v('nome'))return alert('Informe seu nome ou @!');const l=load();l.unshift({nome:v('nome'),nivel:v('nivel'),praia:v('praia'),turno:v('turno')});localStorage.setItem('asf-parceiras',JSON.stringify(l.slice(0,50)));render();}
+render();
+</script>
+</body>
+</html>
