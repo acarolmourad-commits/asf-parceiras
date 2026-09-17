@@ -3,73 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASF Parceiras — Escolas, lojas e marcas parceiras do surf feminino | ASF</title>
-<meta name="description" content="Diretório de escolas de surf, lojas, shapers e marcas que apoiam o surf feminino no litoral norte de SP. Satélite do app ASF.">
-<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-parceiras/">
-<meta name="theme-color" content="#00A8CC">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"ASF Parceiras","url":"https://acarolmourad-commits.github.io/asf-parceiras/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
-</script>
+<title>ASF Parceiras — ASF</title>
+<meta name="description" content="Encontre parceiras de surf por nível, praia e horário">
 <style>
-:root{--primary:#00A8CC;--dark:#0E2439;--purple:#9B59B6;--bg:#F7FBFC;--gray:#5A6B7A}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--dark)}
-nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #E5EEF2;padding:10px 16px;display:flex;gap:14px;flex-wrap:wrap;z-index:10;justify-content:center}
-nav a{color:var(--primary);text-decoration:none;font-weight:700;font-size:13px}
-nav a.on{color:var(--purple)}
-header{background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;padding:44px 20px 32px;text-align:center}
-header h1{font-size:clamp(22px,5vw,32px);margin:6px 0}
-header .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.9}
-.wrap{max-width:860px;margin:0 auto;padding:24px 16px 60px}
-.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.filtros button{border:2px solid var(--primary);background:#fff;color:var(--primary);font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit}
-.filtros button.on{background:var(--primary);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.card{background:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 2px 10px rgba(14,36,57,.06)}
-.card h2{font-size:16px;margin-bottom:4px}
-.muted{color:var(--gray);font-size:12.5px}
-.badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin:6px 6px 0 0;background:#E8F6FA;color:var(--primary)}
-footer{text-align:center;font-size:12.5px;color:var(--gray);padding:24px;border-top:1px solid #E5EEF2}
+:root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+header h1{font-size:2rem} header p{opacity:.9;margin-top:.4rem}
+nav{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;padding:.7rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.25rem .6rem;border-radius:20px;font-size:.72rem;text-decoration:none}
+nav a:hover{background:var(--rosa);color:#fff}
+main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
+.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
+button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
+.xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 </style>
 </head>
 <body>
-<nav>
-<a href="https://acarolmourad-commits.github.io/asf-app/">🏄 ASF App</a>
-<a href="https://acarolmourad-commits.github.io/asf-comunidade/">🤝 Comunidade</a>
-<a href="https://acarolmourad-commits.github.io/asf-equipamento/">🏂 Equipamento</a>
-<a href="https://acarolmourad-commits.github.io/asf-mercado/">🛒 Mercado</a>
-<a class="on" href="https://acarolmourad-commits.github.io/asf-parceiras/">🤙 Parceiras</a>
-<a href="https://acarolmourad-commits.github.io/asf-eventos/">📅 Eventos</a>
-</nav>
-<header>
-<div class="tag">ASF · Parceiras</div>
-<h1>Quem apoia o surf feminino</h1>
-<p>Escolas, lojas, shapers e marcas que oferecem condições especiais para a comunidade ASF.</p>
-</header>
-<main class="wrap">
-<div class="filtros">
-<button class="on" data-f="todas">Todas</button>
-<button data-f="escola">Escolas</button>
-<button data-f="loja">Lojas</button>
-<button data-f="shaper">Shapers</button>
-</div>
-<div class="grid" id="grid"></div>
-<p class="muted" style="margin-top:16px">É do litoral e quer ser parceira? Fale com a ASF pela <a href="https://acarolmourad-commits.github.io/asf-app/contato.html" style="color:var(--primary)">página de contato</a>.</p>
+<header><h1>👯‍♀️ ASF Parceiras</h1><p>Encontre parceiras de surf por nível, praia e horário</p></header>
+<nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/">🌐 Hub</a>
+<a href="https://acarolmourad-commits.github.io/asf-ranking/">🏆 Ranking</a>
+<a href="https://acarolmourad-commits.github.io/asf-carona/">Carona</a>
+<a href="https://acarolmourad-commits.github.io/asf-seguranca/">Segurança</a>
+<a href="https://acarolmourad-commits.github.io/asf-mercado/">Mercado</a>
+<a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a></nav>
+<main>
+<div class="card"><h2>🔍 Encontre sua dupla de surf</h2>
+<label>Seu nível</label><select id="nv" onchange="filtra()"><option value="">Todas</option><option>Iniciante</option><option>Intermediária</option><option>Avançada</option></select>
+<label>Praia</label><select id="p" onchange="filtra()"><option value="">Todas</option><option>Praia Grande</option><option>Toninhas</option><option>Maresias</option><option>Camburi</option><option>Juquehy</option></select></div>
+<div class="card"><h2>🌊 Surfistas procurando dupla</h2><div id="lista"></div>
+<button onclick="add()" style="margin-top:.6rem">Me adicionar à lista (+10 XP)</button></div>
+<div class="card"><p>Nunca surfe sozinha — veja <a href='https://acarolmourad-commits.github.io/asf-seguranca/'>ASF Segurança</a>. Vai de carona? <a href='https://acarolmourad-commits.github.io/asf-carona/'>ASF Carona</a>.</p></div>
+<div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>.</p></div>
 </main>
-<footer>🌊 ASF — Associação Surf Feminino · <a href="https://acarolmourad-commits.github.io/" style="color:var(--primary)">Hub de apps</a> · <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:var(--primary)">App principal</a></footer>
+<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/">hub</a></footer>
 <script>
-const parceiras=[
-{nome:'Escola Mar&Mana',tipo:'escola',cidade:'São Sebastião',desc:'Aulas só para mulheres, turmas por nível, prancha inclusa.'},
-{nome:'Surf Girls Ubatuba',tipo:'escola',cidade:'Ubatuba',desc:'Escolinha comunitária com bolsas para iniciantes.'},
-{nome:'Sal e Sol Surf Shop',tipo:'loja',cidade:'Maresias',desc:'10% off para membros ASF em wetsuits e acessórios.'},
-{nome:'Litoral Norte Boards',tipo:'loja',cidade:'Caraguatatuba',desc:'Pranchas usadas curadas — ideal para a primeira compra.'},
-{nome:'Shaper Lê Oliveira',tipo:'shaper',cidade:'Ubatuba',desc:'Pranchas sob medida com desconto para alunas das escolas parceiras.'},
-{nome:'Oficina da Prancha',tipo:'shaper',cidade:'São Sebastião',desc:'Conserto rápido de amassados com preço solidário.'}];
-const grid=document.getElementById('grid');
-function render(f){grid.innerHTML='';parceiras.filter(p=>f==='todas'||p.tipo===f).forEach(p=>grid.insertAdjacentHTML('beforeend',`<div class="card"><h2>${p.nome}</h2><div class="muted">${p.cidade}</div><p style="font-size:14px;margin-top:6px">${p.desc}</p><span class="badge">${p.tipo}</span></div>`));}
-document.querySelectorAll('.filtros button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.f);});
-render('todas');
+const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
+function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
+document.getElementById('xp').textContent=XP();
+const seed=[{n:'Bia',nv:'Iniciante',p:'Praia Grande',h:'sáb 7h'},{n:'Carol',nv:'Avançada',p:'Maresias',h:'sex 6h'},{n:'Dani',nv:'Intermediária',p:'Toninhas',h:'dom 8h'},{n:'Fê',nv:'Iniciante',p:'Juquehy',h:'sáb 9h'}];function lista(){return JSON.parse(localStorage.getItem('asf_parc')||'null')||seed;}window.filtra=()=>{const nv=document.getElementById('nv').value,p=document.getElementById('p').value;const l=lista().filter(x=>(!nv||x.nv===nv)&&(!p||x.p===p));document.getElementById('lista').innerHTML=l.length?l.map(x=>`<p>🏄‍♀️ <b>${x.n}</b> — ${x.nv} — ${x.p} — <small>${x.h}</small></p><hr>`).join(''):'Ninguém com esse filtro... seja a primeira! 👇';};window.add=()=>{const n=prompt('Seu nome/apelido:');if(!n)return;const l=lista();l.unshift({n,nv:document.getElementById('nv').value||'Iniciante',p:document.getElementById('p').value||'Praia Grande',h:'a combinar'});localStorage.setItem('asf_parc',JSON.stringify(l));filtra();addXP(10);};filtra();
 </script>
 </body>
 </html>
