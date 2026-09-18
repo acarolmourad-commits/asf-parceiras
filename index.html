@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASF Parceiras — ASF</title>
-<meta name="description" content="Encontre parceiras de surf por nível, praia e horário">
+<meta name="description" content="Encontre parceiras de surf por nível, praia e horário. Agenda de sessões em grupo, checklist pré-surf e dicas para nunca surfar sozinha.">
+<meta property="og:title" content="ASF Parceiras">
+<meta property="og:description" content="Encontre sua dupla de surf: por nível, praia e horário.">
+<meta property="og:type" content="website">
 <style>
 :root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
@@ -18,14 +21,35 @@ main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
 .card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
 .card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
 button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+button:hover{opacity:.9}
 input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
 .xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
 footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.passo{background:var(--areia);border-radius:12px;padding:.9rem;text-align:center}
+.passo b{display:block;color:var(--rosa);font-size:1.3rem;margin-bottom:.3rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;text-align:center}
+.stat b{display:block;font-size:1.6rem;color:var(--roxo)}
+.stat span{font-size:.75rem;color:#777}
+.badge{display:inline-block;background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;border-radius:12px;padding:.05rem .5rem;font-size:.7rem;margin-left:.3rem}
+.badge.Iniciante{background:#e0f7fa;border-color:#b2ebf2;color:#00838f}
+.badge.Avançada{background:#f3e5f5;border-color:#e1bee7;color:#6a1b9a}
+.parceira{display:flex;align-items:center;gap:.7rem;padding:.5rem 0;border-bottom:1px dashed #eee}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--roxo));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
+.sessao{display:flex;justify-content:space-between;align-items:center;background:var(--areia);border-radius:10px;padding:.6rem .8rem;margin:.4rem 0;flex-wrap:wrap;gap:.4rem}
+.sessao button{padding:.3rem .8rem;font-size:.8rem}
+.check label{display:flex;align-items:center;gap:.5rem;padding:.3rem 0;cursor:pointer}
+.check input{width:auto;margin:0}
+details{border:1px solid #eee;border-radius:10px;padding:.6rem .8rem;margin:.4rem 0}
+summary{cursor:pointer;font-weight:600;color:var(--roxo)}
+details p{margin-top:.4rem;font-size:.9rem;color:#555}
+.progresso{height:8px;background:#eee;border-radius:6px;overflow:hidden;margin-top:.5rem}
+.progresso div{height:100%;background:linear-gradient(90deg,var(--rosa),var(--roxo));width:0;transition:width .3s}
 </style>
 </head>
 <body>
 <header><h1>👯‍♀️ ASF Parceiras</h1><p>Encontre parceiras de surf por nível, praia e horário</p></header>
-<nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<nav aria-label="Ecossistema ASF"><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
 <a href="https://acarolmourad-commits.github.io/">🌐 Hub</a>
 <a href="https://acarolmourad-commits.github.io/asf-ranking/">🏆 Ranking</a>
 <a href="https://acarolmourad-commits.github.io/asf-carona/">Carona</a>
@@ -33,21 +57,79 @@ footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 <a href="https://acarolmourad-commits.github.io/asf-mercado/">Mercado</a>
 <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a></nav>
 <main>
+
+<div class="card"><h2>🧭 Como funciona</h2>
+<div class="passos">
+<div class="passo"><b>1</b>Escolha seu nível e sua praia nos filtros</div>
+<div class="passo"><b>2</b>Veja quem está procurando dupla</div>
+<div class="passo"><b>3</b>Entre na lista ou confirme uma sessão</div>
+<div class="passo"><b>4</b>Surfe acompanhada e ganhe XP 🌊</div>
+</div></div>
+
+<div class="card"><h2>📊 Nossa comunidade</h2>
+<div class="stats">
+<div class="stat"><b id="stParc">0</b><span>parceiras ativas</span></div>
+<div class="stat"><b id="stSess">0</b><span>sessões agendadas</span></div>
+<div class="stat"><b id="stPraias">5</b><span>praias cobertas</span></div>
+</div></div>
+
 <div class="card"><h2>🔍 Encontre sua dupla de surf</h2>
-<label>Seu nível</label><select id="nv" onchange="filtra()"><option value="">Todas</option><option>Iniciante</option><option>Intermediária</option><option>Avançada</option></select>
-<label>Praia</label><select id="p" onchange="filtra()"><option value="">Todas</option><option>Praia Grande</option><option>Toninhas</option><option>Maresias</option><option>Camburi</option><option>Juquehy</option></select></div>
+<label for="busca">Buscar por nome</label><input id="busca" type="search" placeholder="Digite um nome..." oninput="filtra()" aria-label="Buscar parceira por nome">
+<label for="nv">Seu nível</label><select id="nv" onchange="filtra()"><option value="">Todos</option><option>Iniciante</option><option>Intermediária</option><option>Avançada</option></select>
+<label for="p">Praia</label><select id="p" onchange="filtra()"><option value="">Todas</option><option>Praia Grande</option><option>Toninhas</option><option>Maresias</option><option>Camburi</option><option>Juquehy</option></select>
+<label for="per">Período</label><select id="per" onchange="filtra()"><option value="">Qualquer</option><option>Manhã</option><option>Tarde</option><option>Fim de semana</option></select>
+</div>
+
 <div class="card"><h2>🌊 Surfistas procurando dupla</h2><div id="lista"></div>
 <button onclick="add()" style="margin-top:.6rem">Me adicionar à lista (+10 XP)</button></div>
+
+<div class="card"><h2>📅 Sessões em grupo desta semana</h2>
+<div id="sessoes"></div>
+<p style="font-size:.8rem;color:#777;margin-top:.4rem">Confirmar presença rende +5 XP e ajuda outras surfistas a não irem sozinhas.</p></div>
+
+<div class="card check"><h2>✅ Checklist pré-surf</h2>
+<label><input type="checkbox" onchange="checklist()"> Verifiquei a previsão das ondas e do vento</label>
+<label><input type="checkbox" onchange="checklist()"> Levei protetor solar e água</label>
+<label><input type="checkbox" onchange="checklist()"> Avisei minha dupla/local combinado</label>
+<label><input type="checkbox" onchange="checklist()"> Prancha e leash em bom estado</label>
+<label><input type="checkbox" onchange="checklist()"> Sei onde fica o posto de salva-vidas</label>
+<div class="progresso" aria-hidden="true"><div id="barra"></div></div>
+<p style="font-size:.8rem;color:#777;margin-top:.3rem" id="checkMsg">Complete o checklist e ganhe +5 XP.</p></div>
+
+<div class="card"><h2>❓ Perguntas frequentes</h2>
+<details><summary>Preciso ter prancha própria?</summary><p>Não! Muitas parceiras combinam de revezar ou alugar perto da praia. Combine com sua dupla antes de sair.</p></details>
+<details><summary>Por que surfar acompanhada?</summary><p>Segurança em primeiro lugar: correntezas, cansaço e imprevistos ficam muito mais fáceis com alguém por perto. Veja o <a href="https://acarolmourad-commits.github.io/asf-seguranca/">ASF Segurança</a>.</p></details>
+<details><summary>Como ganho XP?</summary><p>Entrar na lista (+10), confirmar sessão (+5), completar o checklist (+5). Seu XP aparece no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>.</p></details>
+<details><summary>Minha praia não está na lista. E agora?</summary><p>Adicione-se mesmo assim escolhendo a praia mais próxima e peça para incluirmos a sua na <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a>.</p></details>
+</div>
+
 <div class="card"><p>Nunca surfe sozinha — veja <a href='https://acarolmourad-commits.github.io/asf-seguranca/'>ASF Segurança</a>. Vai de carona? <a href='https://acarolmourad-commits.github.io/asf-carona/'>ASF Carona</a>.</p></div>
 <div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>.</p></div>
 </main>
-<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<div class="xp" role="status">⭐ XP: <span id="xp">0</span></div>
 <footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/">hub</a></footer>
 <script>
 const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
 function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
 document.getElementById('xp').textContent=XP();
-const seed=[{n:'Bia',nv:'Iniciante',p:'Praia Grande',h:'sáb 7h'},{n:'Carol',nv:'Avançada',p:'Maresias',h:'sex 6h'},{n:'Dani',nv:'Intermediária',p:'Toninhas',h:'dom 8h'},{n:'Fê',nv:'Iniciante',p:'Juquehy',h:'sáb 9h'}];function lista(){return JSON.parse(localStorage.getItem('asf_parc')||'null')||seed;}window.filtra=()=>{const nv=document.getElementById('nv').value,p=document.getElementById('p').value;const l=lista().filter(x=>(!nv||x.nv===nv)&&(!p||x.p===p));document.getElementById('lista').innerHTML=l.length?l.map(x=>`<p>🏄‍♀️ <b>${x.n}</b> — ${x.nv} — ${x.p} — <small>${x.h}</small></p><hr>`).join(''):'Ninguém com esse filtro... seja a primeira! 👇';};window.add=()=>{const n=prompt('Seu nome/apelido:');if(!n)return;const l=lista();l.unshift({n,nv:document.getElementById('nv').value||'Iniciante',p:document.getElementById('p').value||'Praia Grande',h:'a combinar'});localStorage.setItem('asf_parc',JSON.stringify(l));filtra();addXP(10);};filtra();
+const seed=[{n:'Bia',nv:'Iniciante',p:'Praia Grande',h:'sáb 7h',per:'Fim de semana'},{n:'Carol',nv:'Avançada',p:'Maresias',h:'sex 6h',per:'Manhã'},{n:'Dani',nv:'Intermediária',p:'Toninhas',h:'dom 8h',per:'Fim de semana'},{n:'Fê',nv:'Iniciante',p:'Juquehy',h:'sáb 9h',per:'Fim de semana'},{n:'Gabi',nv:'Intermediária',p:'Camburi',h:'qui 16h',per:'Tarde'},{n:'Lari',nv:'Avançada',p:'Praia Grande',h:'ter 6h30',per:'Manhã'}];
+function lista(){return JSON.parse(localStorage.getItem('asf_parc')||'null')||seed;}
+window.filtra=()=>{const nv=document.getElementById('nv').value,p=document.getElementById('p').value,per=document.getElementById('per').value,b=(document.getElementById('busca').value||'').toLowerCase();
+const l=lista().filter(x=>(!nv||x.nv===nv)&&(!p||x.p===p)&&(!per||x.per===per)&&(!b||x.n.toLowerCase().includes(b)));
+document.getElementById('lista').innerHTML=l.length?l.map(x=>`<div class="parceira"><div class="avatar">${x.n[0]}</div><div><b>${x.n}</b><span class="badge ${x.nv}">${x.nv}</span><br><small>📍 ${x.p} · 🕒 ${x.h}</small></div></div>`).join(''):'Ninguém com esse filtro... seja a primeira! 💗';
+document.getElementById('stParc').textContent=lista().length;};
+window.add=()=>{const n=prompt('Seu nome/apelido:');if(!n)return;const l=lista();const nv=document.getElementById('nv').value||'Iniciante';const p=document.getElementById('p').value||'Praia Grande';
+l.unshift({n,nv,p,h:'a combinar',per:'Fim de semana'});localStorage.setItem('asf_parc',JSON.stringify(l));filtra();addXP(10);};
+const sessoesSeed=[{dia:'Sábado 7h',praia:'Praia Grande',tema:'Todas juntas — treino de remada',vagas:6},{dia:'Domingo 8h',praia:'Juquehy',tema:'Iniciantes — primeiras ondas',vagas:4},{dia:'Sexta 6h30',praia:'Maresias',tema:'Avançadas — outside',vagas:3}];
+function sessoes(){return JSON.parse(localStorage.getItem('asf_sess')||'null')||sessoesSeed;}
+function renderSess(){const s=sessoes();document.getElementById('sessoes').innerHTML=s.map((x,i)=>`<div class="sessao"><div><b>${x.dia}</b> · ${x.praia}<br><small>${x.tema} · ${x.vagas>0?x.vagas+' vagas':'lotada'}</small></div><button onclick="confirma(${i})" ${x.vagas<=0?'disabled':''}>Confirmar (+5 XP)</button></div>`).join('');
+document.getElementById('stSess').textContent=s.length;}
+window.confirma=i=>{const s=sessoes();if(s[i].vagas>0){s[i].vagas--;localStorage.setItem('asf_sess',JSON.stringify(s));renderSess();addXP(5);alert('Presença confirmada! Nos vemos no pico 🌊');}};
+let checkFeito=localStorage.getItem('asf_check')==='1';
+window.checklist=()=>{const boxes=[...document.querySelectorAll('.check input')];const ok=boxes.filter(b=>b.checked).length;
+document.getElementById('barra').style.width=(ok/boxes.length*100)+'%';
+if(ok===boxes.length&&!checkFeito){checkFeito=true;localStorage.setItem('asf_check','1');addXP(5);document.getElementById('checkMsg').textContent='Checklist completo! +5 XP 🎉';}};
+filtra();renderSess();
 </script>
 </body>
 </html>
